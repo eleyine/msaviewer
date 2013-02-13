@@ -101,12 +101,17 @@ var content_created = function () {
     // highlight column and row
     $("table").delegate('td.symbol','mouseover mouseleave', function(e) {
         if (e.type == 'mouseover') {
-          $(this).parent().addClass("sequence-hover");
-          $("colgroup").eq($(this).index()).addClass("sequence-hover");
-
+          $(this).parent().addClass("sequence-hover"); 
+          var this_symbol = this;
+          $("table.sequence-symbols").each(function() {
+            $(this).children("colgroup").eq($(this_symbol).index()).addClass("sequence-hover");
+          });
         } else {
           $(this).parent().removeClass("sequence-hover");
-          $("colgroup").eq($(this).index()).removeClass("sequence-hover");
+          var this_symbol = this;
+          $("table.sequence-symbols").each(function() {
+            $(this).children("colgroup").eq($(this_symbol).index()).removeClass("sequence-hover");
+          });
         }
     });
 
