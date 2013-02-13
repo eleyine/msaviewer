@@ -1,0 +1,28 @@
+<template name="sidebar">
+  <div class="general-info well">
+  {{#if display_sequence_info}}
+    <p> <b>{{selected_sequence.organism}}</b> protein sequence with id <a href="http://www.ncbi.nlm.nih.gov/protein/{{selected_sequence.gb_id}}">{{selected_sequence.gb_id}}</a>. </p>
+    {{#if selected_sequence.num_annotations}}
+      {{> annotations}}
+    {{else}}
+    <p><i class="icon-question-sign"></i> No annotations currently associated with this sequence. </p>
+    {{/if}}
+  {{else}}
+    <p> Click on a sequence name to learn more about it. </p>
+  {{/if}}
+  </div>
+  {{> color_input}}
+</template>
+
+<template name="color_input">
+  <form >
+    <div class="control-group">
+      <label for="colorInput">Color</label>
+      <div class="controls input-append" id="colorInputGroup">
+          <input type="text" data-provide="typeahead" id="colorInput" placeholder="Black">
+          <span class="add-on"></span>
+      </div>
+      <span class="help-inline" style="display:none">Invalid color.</span>
+    </div>
+  </form>
+</template>

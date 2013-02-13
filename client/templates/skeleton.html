@@ -1,0 +1,44 @@
+<template name="title_">
+    <title>Meteor MSA Viewer</title>    
+</template>
+
+<template name="nav">
+  <div class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="brand" href="#">Alignment Viewer</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <p class="navbar-text pull-right"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="content">
+  <div class="container-fluid">
+    <div class="row-fluid">
+  <!-- Sequence alignment
+      ================================================== -->
+      <div class="span9 sequences">
+          {{> sequences}}
+          {{> filters}}
+      </div> <!-- /sequence alignment -->
+  <!-- Sidebar
+      ================================================== -->
+      <div class="span3 sidebar well">
+          {{> sidebar}}
+      </div> <!-- /sidebar -->
+    </div>
+  </div>
+</template>

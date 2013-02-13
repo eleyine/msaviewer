@@ -1,0 +1,124 @@
+<template name="sequences">
+  <div class="row-fluid sequences">
+  <div class="span3" style="overflow:hidden">
+    <table class="sort tablesorter  table-bordered table-condensed sequence-name">
+        <th> Sequences </th>
+        <tbody>
+        {{#each sequences}}
+          <tr class="sequence sequence-name row{{index}} {{reference}} {{selected}}">
+              <td class="sequence-name sequence" href="#">
+                {{#if editing}}
+                  <input class="sequence-name-input" id="sequence-name-input" type="text" value="{{name}}" />
+                {{else}}
+                  <button type="button" class="close">×</button>
+                  <a class="sequence-name sequence">{{name}}</a> 
+                {{/if}}
+              </td>
+          </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    </div>
+    <div class="span9 linked-scroll" style="overflow:scroll">
+    <table class="sort tablesorter table-bordered table-condensed sequence-symbols">
+        {{#each columns}}
+          <colgroup></colgroup>
+        {{/each}}
+        <th>&nbsp</th>
+        <tbody>
+        {{#each sequences}}
+            <tr class="sequence sequence-symbols row{{index}} {{reference}} {{selected}}">
+                {{#each symbols}}
+                  <td class="sequence symbol"><a>{{symbol}}</a></td>
+                {{/each}}
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    </div>
+  </div>
+</template>
+
+<template name="filters">
+  <div class="row-fluid character-filters filters">
+  <div class="span3" style="overflow:hidden">
+    <table class="sort tablesorter  table-bordered table-condensed sequence-name">
+        <th> Character Filters </th>
+        <tbody>
+        {{#each char_filters}}
+          <tr class="sequence sequence-name {{selected}}">
+              <td class="icon-remove">
+                <i class="icon-remove"></i>
+              </td>
+              <td class="sequence-name sequence" href="#">
+                {{#if editing}}
+                  <input class="sequence-name-input" id="filter-name-input" type="text" value="{{name}}" />
+                {{else}}
+                  <a class="sequence-name sequence">{{name}}</a> 
+                {{/if}}
+              </td>
+          </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    </div>
+    <div class="span9 linked-scroll" style="overflow:scroll">
+    <table class="sort tablesorter table-bordered table-condensed sequence-symbols">
+        {{#each columns}}
+          <colgroup></colgroup>
+        {{/each}}
+        <th>&nbsp</th>
+        <tbody>
+        {{#each char_filters}}
+            <tr class="sequence sequence-symbols {{selected}}">
+                {{#each symbols}}
+                  <td class="sequence symbol"><a>{{symbol}}</a></td>
+                {{/each}}
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    </div>
+  </div>
+
+<div class="row-fluid boolean-filters filters">
+  <div class="span3" style="overflow:hidden">
+    <table class="sort tablesorter  table-bordered table-condensed sequence-name">
+        <th> Boolean Filters </th>
+        <tbody>
+        {{#each bool_filters}}
+          <tr class="sequence sequence-name {{selected}}">
+              <td class="icon-remove">
+                <i class="icon-remove"></i>
+              </td>
+              <td class="sequence-name sequence" href="#">
+                {{#if editing}}
+                  <input class="sequence-name-input" id="filter-name-input" type="text" value="{{name}}" />
+                {{else}}
+                  <a class="sequence-name sequence">{{name}}</a> 
+                {{/if}}
+              </td>
+          </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    </div>
+    <div class="span9 linked-scroll" style="overflow:scroll">
+    <table class="sort tablesorter table-bordered table-condensed sequence-symbols">
+        {{#each columns}}
+          <colgroup></colgroup>
+        {{/each}}
+        <th>&nbsp</th>
+        <tbody>
+        {{#each bool_filters}}
+            <tr class="sequence sequence-symbols {{selected}}">
+                {{#each symbols}}
+                  <td class="sequence symbol"><a>{{symbol}}</a></td>
+                {{/each}}
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    </div>
+  </div>
+</template>
